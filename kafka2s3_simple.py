@@ -50,7 +50,7 @@ def main():
     #
     
     timestr = time.strftime("%Y%m%d-%H%M%S")
-    file_name = "msgs-" + kafka_topic + "-"  + timestr + ".csv"
+    file_name = "-" filename_prefix + "-" + kafka_topic + "-"  + timestr + ".csv"
     
     file = open(file_name,"w+") 
     for x in range(100):
