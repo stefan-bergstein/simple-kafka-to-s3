@@ -2,7 +2,7 @@
 Very simple Kafka to S3 uploalder
 
 
-# S3 
+# Prep S3 
 
 
 ## Set envs
@@ -43,5 +43,11 @@ aws_secret_access_key=<aws_s3_secret_key>
 ```
 oc create secret generic kafka-to-s3-creds --from-literal=ACCESS_KEY_ID=$ACCESS_KEY_ID --from-literal=SECRET_ACCESS_KEY=$SECRET_ACCESS_KEY
 oc get secret kafka-to-s3-cred
+```
+
+# Build
+
+```
+oc apply -k manifests/
 ```
 
