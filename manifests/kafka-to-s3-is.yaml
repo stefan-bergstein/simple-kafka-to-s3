@@ -1,0 +1,9 @@
+kind: ImageStream
+apiVersion: v1
+metadata:
+  name: kafka-to-s3
+  labels:
+    component: kafka-to-s3
+spec:
+  lookupPolicy:
+    local: true

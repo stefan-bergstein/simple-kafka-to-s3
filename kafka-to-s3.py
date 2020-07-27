@@ -23,7 +23,6 @@ def main():
     kafka_bootstrap_servers = os.getenv('KAFKA_BOOTSTRAP_SERVERS','localhost:9092')
     kafka_topic = os.getenv('KAFKA_TOPIC','iot-sensor-sw-vibration')
 
-    
     print('KAFKA_BOOTSTRAP_SERVERS:',kafka_bootstrap_servers)
     print('KAFKA_TOPIC:',kafka_topic)
     

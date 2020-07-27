@@ -11,8 +11,7 @@ metadata:
     app.openshift.io/runtime-version: "3.6"
   name: kafka-to-s3
 spec:
-  failedBuildsHistoryLimit: 5
-  nodeSelector: null
+  failedBuildsHistoryLimit: 3
   output:
     to:
       kind: ImageStreamTag
@@ -34,4 +33,4 @@ spec:
     type: Source
   triggers:
   - type: ConfigChange
-  successfulBuildsHistoryLimit: 5
+  successfulBuildsHistoryLimit: 3

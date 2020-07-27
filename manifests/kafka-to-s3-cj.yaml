@@ -1,7 +1,7 @@
 apiVersion: batch/v1beta1
 kind: CronJob
 metadata:
-  name: kafka-to-s3-vibration
+  name: kafka-to-s3
 spec:
   concurrencyPolicy: Allow
   failedJobsHistoryLimit: 1
@@ -10,12 +10,14 @@ spec:
       template:
         spec:
           containers:
-          - args:
-            - python /bin/sh kafka2s3_simple.py
-            image: iotdemo/kafka-to-s3
+          - name: kafka-to-s3
+            image: kafka-to-s3:latest
             imagePullPolicy: Always
-            name: kafka-to-s3-vibration
-            resources: {}
+            envFrom:
+              - secretRef:
+                  name: kafka-to-s3-creds
+              - configMapRef:
+                  name: kafka-to-s3-config
             terminationMessagePath: /dev/termination-log
             terminationMessagePolicy: File
           dnsPolicy: ClusterFirst
